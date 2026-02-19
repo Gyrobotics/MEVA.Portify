@@ -171,6 +171,31 @@ footer{
 </head>
 
 <body>
+<script>
+function downloadTemplate(url, filename) {
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("File not found");
+      }
+      return response.blob();
+    })
+    .then(blob => {
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+    })
+    .catch(err => {
+      alert("Download failed. Please try again.");
+      console.error(err);
+    });
+}
+</script>
+
 
 <nav>
   <div class="brand">Port<span>ify</span></div>
@@ -201,109 +226,121 @@ footer{
       <h3>Template 01</h3>
       <div class="actions">
         <a href="templates/Portfolio_v0.1.html" target="_blank">Preview</a>
-        <a href="https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/refs/heads/main/templates/Portfolio_v0.1.html" download>Download</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.1.html','Portfolio_v0.1.html')">Download
+      </a>
       </div>
     </div>
-   <!-- TEMPLATE 02 -->
+    <!-- TEMPLATE 02 -->
     <div class="card">
       <img src="images/img_2.png" alt="Template 02 preview">
       <h3>Template 02</h3>
       <div class="actions">
         <a href="templates/Portfolio_v0.2.html" target="_blank">Preview</a>
-        <a href="https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.2.html" download="Portfolio_v0.2.html">Download</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.2.html','Portfolio_v0.2.html')">Download
+      </a>
       </div>
     </div>
-       <!-- TEMPLATE 03 -->
+    <!-- TEMPLATE 03 -->
     <div class="card">
       <img src="images/img_3.png" alt="Template 03 preview">
       <h3>Template 03</h3>
       <div class="actions">
         <a href="templates/Portfolio_v0.3.html" target="_blank">Preview</a>
-        <a href="https://github.com/yourrepo/template03.html" download>Download</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.3.html','Portfolio_v0.3.html')">Download
+      </a>
       </div>
     </div>
-       <!-- TEMPLATE 04 -->
+    <!-- TEMPLATE 04 -->
     <div class="card">
       <img src="images/img_4.png" alt="Template 04 preview">
       <h3>Template 04</h3>
       <div class="actions">
         <a href="templates/Portfolio_v0.4.html" target="_blank">Preview</a>
-        <a href="https://github.com/yourrepo/template04.html" download>Download</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.4.html','Portfolio_v0.4.html')">Download
+      </a>
       </div>
     </div>
-       <!-- TEMPLATE 05 -->
+    <!-- TEMPLATE 05 -->
     <div class="card">
       <img src="images/img_5.png" alt="Template 05 preview">
       <h3>Template 05</h3>
       <div class="actions">
         <a href="templates/Portfolio_v0.5.html" target="_blank">Preview</a>
-        <a href="https://github.com/yourrepo/template05.html" download>Download</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.5.html','Portfolio_v0.5.html')">Download
+      </a>
       </div>
     </div>
-       <!-- TEMPLATE 06 -->
+    <!-- TEMPLATE 06 -->
     <div class="card">
       <img src="images/img_6.png" alt="Template 06 preview">
       <h3>Template 06</h3>
       <div class="actions">
         <a href="templates/Portfolio_v0.6.html" target="_blank">Preview</a>
-        <a href="https://github.com/yourrepo/template06.html" download>Download</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.6.html','Portfolio_v0.6.html')">Download
+      </a>
       </div>
     </div>
-         <!-- TEMPLATE 07 -->
+    <!-- TEMPLATE 07 -->
     <div class="card">
-      <img src="images/img_7.png" alt="Template 07 preview">   
-        <h3>Template 07</h3>
-        <div class="actions">
-          <a href="templates/Portfolio_v0.7.html" target="_blank">Preview</a>
-          <a href="https://github.com/yourrepo/template07.html" download>Download</a>
-        </div>
+      <img src="images/img_7.png" alt="Template 07 preview">
+      <h3>Template 07</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v0.7.html" target="_blank">Preview</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.7.html','Portfolio_v0.7.html')">Download
+      </a>
+      </div>
     </div>
-         <!-- TEMPLATE 08 -->
+    <!-- TEMPLATE 08 -->
     <div class="card">
-      <img src="images/img_8.png" alt="Template 08 preview">   
-        <h3>Template 08</h3>
-        <div class="actions">
-          <a href="templates/Portfolio_v0.8.html" target="_blank">Preview</a>
-          <a href="https://github.com/yourrepo/template08.html" download>Download</a>
-        </div>
+      <img src="images/img_8.png" alt="Template 08 preview">
+      <h3>Template 08</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v0.8.html" target="_blank">Preview</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.8.html','Portfolio_v0.8.html')">Download
+      </a>
+      </div>
     </div>
-         <!-- TEMPLATE 09 -->
+    <!-- TEMPLATE 09 -->
     <div class="card">
-      <img src="images/img_9.png" alt="Template 09 preview">   
-        <h3>Template 09</h3>
-        <div class="actions">
-          <a href="templates/Portfolio_v0.9.html" target="_blank">Preview</a>
-          <a href="https://github.com/yourrepo/template09.html" download>Download</a>
-        </div>
+      <img src="images/img_9.png" alt="Template 09 preview">
+      <h3>Template 09</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v0.9.html" target="_blank">Preview</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.9.html','Portfolio_v0.9.html')">Download
+      </a>
+      </div>
     </div>
-         <!-- TEMPLATE 10 -->
+    <!-- TEMPLATE 10 -->
     <div class="card">
-      <img src="images/img_10.png" alt="Template 10 preview">   
-        <h3>Template 10</h3>
-        <div class="actions">
-          <a href="templates/Portfolio_v1.0.html" target="_blank">Preview</a>
-          <a href="https://github.com/yourrepo/template10.html" download>Download</a>
-        </div>
+      <img src="images/img_10.png" alt="Template 10 preview">
+      <h3>Template 10</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v1.0.html" target="_blank">Preview</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v1.0.html','Portfolio_v1.0.html')">Download
+      </a>
+      </div>
     </div>
-        <!-- TEMPLATE 11 -->
+    <!-- TEMPLATE 11 -->
     <div class="card">
       <img src="images/img_11.png" alt="Template 11 preview">
       <h3>Template 11</h3>
       <div class="actions">
         <a href="templates/Portfolio_v1.1.html" target="_blank">Preview</a>
-        <a href="https://github.com/yourrepo/template11.html" download>Download</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v1.1.html','Portfolio_v1.1.html')">Download
+      </a>
       </div>
     </div>
-            <!-- TEMPLATE 12 -->    
+    <!-- TEMPLATE 12 -->
     <div class="card">
       <img src="images/img_12.png" alt="Template 12 preview">
-        <h3>Template 12</h3>
-        <div class="actions">
-          <a href="templates/Portfolio_v1.2.html" target="_blank">Preview</a>
-          <a href="https://github.com/yourrepo/template12.html" download>Download</a>
-        </div>
+      <h3>Template 12</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v1.2.html" target="_blank">Preview</a>
+        <a href="#" onclick="downloadTemplate('https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v1.2.html','Portfolio_v1.2.html')">Download
+      </a>
+      </div>
     </div>
-           
+
 
     <!-- DUPLICATE UP TO TEMPLATE 20 -->
     <!-- Copy-paste this block and change image & links -->
