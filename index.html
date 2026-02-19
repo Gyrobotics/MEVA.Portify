@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portify — Build your portfolio</title>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#0a0a0a;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --accent:#2563eb;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* NAV */
+nav{
+  max-width:1200px;
+  margin:auto;
+  padding:28px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  font-size:1.4rem;
+  font-weight:700;
+  letter-spacing:-0.02em;
+}
+
+.brand span{color:var(--accent)}
+
+nav a{
+  margin-left:28px;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:500;
+}
+
+/* HERO */
+.hero{
+  max-width:900px;
+  margin:120px auto;
+  padding:0 24px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:4rem;
+  font-weight:800;
+  letter-spacing:-0.04em;
+}
+
+.hero p{
+  font-size:1.25rem;
+  color:var(--muted);
+  margin-top:20px;
+}
+
+.hero .cta{
+  margin-top:40px;
+  display:inline-block;
+  padding:14px 34px;
+  border-radius:999px;
+  background:var(--text);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* SECTION */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:100px 24px;
+}
+
+.section-head{
+  max-width:640px;
+  margin-bottom:60px;
+}
+
+.section-head h2{
+  font-size:2.6rem;
+  letter-spacing:-0.03em;
+}
+
+.section-head p{
+  color:var(--muted);
+  font-size:1.1rem;
+}
+
+/* TEMPLATES */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+}
+
+.card{
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:20px;
+  transition:.2s ease;
+}
+
+.card:hover{
+  border-color:var(--text);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:14px;
+  background:#f3f4f6;
+}
+
+.card h3{
+  margin:16px 0 12px;
+}
+
+.actions{
+  display:flex;
+  gap:16px;
+}
+
+.actions a{
+  text-decoration:none;
+  font-weight:600;
+  font-size:.9rem;
+  color:var(--text);
+}
+
+/* INFO */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
+
+pre{
+  background:#0b0b0b;
+  color:#e5e7eb;
+  padding:28px;
+  border-radius:16px;
+  margin-top:40px;
+  overflow-x:auto;
+  font-size:.9rem;
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:50px 24px;
+  text-align:center;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="brand">Port<span>ify</span></div>
+  <div>
+    <a href="#templates">Templates</a>
+    <a href="#how">How it works</a>
+    <a href="#deploy">Deploy</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Your portfolio, done right.</h1>
+  <p>Turn your CV into a professional website using clean HTML templates and AI assistance.</p>
+  <a class="cta" href="#templates">View templates</a>
+</div>
+
+<section id="templates">
+  <div class="section-head">
+    <h2>Templates</h2>
+    <p>Each template is fully editable and deployment-ready.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- TEMPLATE 01 -->
+    <div class="card">
+      <img src="images/img_1.png" alt="Template 01 preview">
+      <h3>Template 01</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v0.1.html" target="_blank">Preview</a>
+        <a href="https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/refs/heads/main/templates/Portfolio_v0.1.html" download>Download</a>
+      </div>
+    </div>
+   <!-- TEMPLATE 02 -->
+    <div class="card">
+      <img src="images/img_2.png" alt="Template 02 preview">
+      <h3>Template 02</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v0.2.html" target="_blank">Preview</a>
+        <a href="https://raw.githubusercontent.com/Gyrobotics/MEVA.Portify/main/templates/Portfolio_v0.2.html" download="Portfolio_v0.2.html">Download</a>
+      </div>
+    </div>
+       <!-- TEMPLATE 03 -->
+    <div class="card">
+      <img src="images/img_3.png" alt="Template 03 preview">
+      <h3>Template 03</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v0.3.html" target="_blank">Preview</a>
+        <a href="https://github.com/yourrepo/template03.html" download>Download</a>
+      </div>
+    </div>
+       <!-- TEMPLATE 04 -->
+    <div class="card">
+      <img src="images/img_4.png" alt="Template 04 preview">
+      <h3>Template 04</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v0.4.html" target="_blank">Preview</a>
+        <a href="https://github.com/yourrepo/template04.html" download>Download</a>
+      </div>
+    </div>
+       <!-- TEMPLATE 05 -->
+    <div class="card">
+      <img src="images/img_5.png" alt="Template 05 preview">
+      <h3>Template 05</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v0.5.html" target="_blank">Preview</a>
+        <a href="https://github.com/yourrepo/template05.html" download>Download</a>
+      </div>
+    </div>
+       <!-- TEMPLATE 06 -->
+    <div class="card">
+      <img src="images/img_6.png" alt="Template 06 preview">
+      <h3>Template 06</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v0.6.html" target="_blank">Preview</a>
+        <a href="https://github.com/yourrepo/template06.html" download>Download</a>
+      </div>
+    </div>
+         <!-- TEMPLATE 07 -->
+    <div class="card">
+      <img src="images/img_7.png" alt="Template 07 preview">   
+        <h3>Template 07</h3>
+        <div class="actions">
+          <a href="templates/Portfolio_v0.7.html" target="_blank">Preview</a>
+          <a href="https://github.com/yourrepo/template07.html" download>Download</a>
+        </div>
+    </div>
+         <!-- TEMPLATE 08 -->
+    <div class="card">
+      <img src="images/img_8.png" alt="Template 08 preview">   
+        <h3>Template 08</h3>
+        <div class="actions">
+          <a href="templates/Portfolio_v0.8.html" target="_blank">Preview</a>
+          <a href="https://github.com/yourrepo/template08.html" download>Download</a>
+        </div>
+    </div>
+         <!-- TEMPLATE 09 -->
+    <div class="card">
+      <img src="images/img_9.png" alt="Template 09 preview">   
+        <h3>Template 09</h3>
+        <div class="actions">
+          <a href="templates/Portfolio_v0.9.html" target="_blank">Preview</a>
+          <a href="https://github.com/yourrepo/template09.html" download>Download</a>
+        </div>
+    </div>
+         <!-- TEMPLATE 10 -->
+    <div class="card">
+      <img src="images/img_10.png" alt="Template 10 preview">   
+        <h3>Template 10</h3>
+        <div class="actions">
+          <a href="templates/Portfolio_v1.0.html" target="_blank">Preview</a>
+          <a href="https://github.com/yourrepo/template10.html" download>Download</a>
+        </div>
+    </div>
+        <!-- TEMPLATE 11 -->
+    <div class="card">
+      <img src="images/img_11.png" alt="Template 11 preview">
+      <h3>Template 11</h3>
+      <div class="actions">
+        <a href="templates/Portfolio_v1.1.html" target="_blank">Preview</a>
+        <a href="https://github.com/yourrepo/template11.html" download>Download</a>
+      </div>
+    </div>
+            <!-- TEMPLATE 12 -->    
+    <div class="card">
+      <img src="images/img_12.png" alt="Template 12 preview">
+        <h3>Template 12</h3>
+        <div class="actions">
+          <a href="templates/Portfolio_v1.2.html" target="_blank">Preview</a>
+          <a href="https://github.com/yourrepo/template12.html" download>Download</a>
+        </div>
+    </div>
+           
+
+    <!-- DUPLICATE UP TO TEMPLATE 20 -->
+    <!-- Copy-paste this block and change image & links -->
+
+  </div>
+</section>
+
+<section id="how">
+  <div class="section-head">
+    <h2>How it works</h2>
+    <p>No backend. No lock-in. Full control.</p>
+  </div>
+
+  <div class="steps">
+    <div>Choose a template</div>
+    <div>Upload HTML + CV to Qwen AI</div>
+    <div>Deploy on GitHub Pages</div>
+  </div>
+
+<pre>
+RULES FOR AI:
+- Change content only
+- Do not touch design or CSS
+- Ensure CV accuracy
+- Output full HTML file
+</pre>
+</section>
+
+<section id="deploy">
+  <div class="section-head">
+    <h2>Deploy on GitHub Pages</h2>
+    <p>Free hosting, professional URLs.</p>
+  </div>
+
+  <div class="steps">
+    <div>Create repository</div>
+    <div>Upload index.html</div>
+    <div>Enable Pages</div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Portify
+</footer>
+
+</body>
+</html>
