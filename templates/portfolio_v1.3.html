@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Engineer Portfolio</title>
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-blue: #0066cc;       /* Professional Tech Blue */
+            --dark-blue: #004c99;          /* Hover State */
+            --light-blue-bg: #f0f7ff;      /* Very light blue for backgrounds */
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-gray: #555555;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-gray);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- HERO SECTION (HEADER) --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue-bg) 100%);
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .greeting {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+            border-color: var(--dark-blue);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light-blue-bg);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Profile Image Styling */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .img-container {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Decorative Circle behind image */
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            border: 2px dashed var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- SKILLS SECTION --- */
+        .section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .section-title span {
+            color: var(--primary-blue);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .projects-section {
+            background-color: var(--light-blue-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+        
+        /* Placeholder for project images */
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .project-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            background-color: var(--light-blue-bg);
+            color: var(--primary-blue);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .project-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--white);
+            color: var(--text-gray);
+            border-top: 1px solid #eee;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 2rem;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-top: 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .about-text {
+                margin: 0 auto 2rem auto;
+            }
+
+            .img-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .hero-image::before {
+                width: 280px;
+                height: 280px;
+            }
+
+            .nav-links {
+                display: none; /* Simple hide for mobile, ideally add hamburger menu */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav>
+        <div class="logo">ENGINEER<span style="color:var(--text-dark)">.DEV</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER / HERO SECTION -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <p class="greeting">Hello, I'm</p>
+            <h1>Alex Engineer</h1> <!-- REPLACE WITH YOUR NAME -->
+            <h2>Embedded Systems Engineer & IoT Specialist</h2> <!-- REPLACE WITH YOUR TITLE -->
+            
+            <p class="about-text">
+                <!-- REPLACE WITH YOUR ABOUT SECTION FROM CV -->
+                Passionate Embedded Engineer with 5+ years of experience in firmware development, RTOS, and hardware debugging. I bridge the gap between hardware and software to create efficient, scalable IoT solutions.
+            </p>
+
+            <div class="hero-buttons">
+                <!-- REPLACE '#' WITH YOUR RESUME FILE PATH -->
+                <a href="#" class="btn btn-primary" download>Download Resume <i class="fas fa-download"></i></a>
+                <a href="#projects" class="btn btn-outline">View Work</a>
+            </div>
+
+            <div class="social-links">
+                <!-- REPLACE WITH YOUR LINKS -->
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:email@example.com"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="img-container">
+                <!-- REPLACE WITH YOUR IMAGE PATH -->
+                <img src="https://via.placeholder.com/350" alt="Profile Picture">
+            </div>
+        </div>
+    </header>
+
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills">
+        <h2 class="section-title">Technical <span>Expertise</span></h2>
+        <div class="skills-grid">
+            <!-- Skill 1 -->
+            <div class="skill-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Microcontrollers</h3>
+                <p>ARM Cortex-M, ESP32, STM32, AVR</p>
+            </div>
+            <!-- Skill 2 -->
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Languages</h3>
+                <p>C, C++, Python, Assembly</p>
+            </div>
+            <!-- Skill 3 -->
+            <div class="skill-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Protocols</h3>
+                <p>I2C, SPI, UART, CAN, MQTT, BLE</p>
+            </div>
+            <!-- Skill 4 -->
+            <div class="skill-card">
+                <i class="fas fa-tools"></i>
+                <h3>Tools</h3>
+                <p>Git, Oscilloscopes, Logic Analyzers, Altium</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+        <h2 class="section-title">Featured <span>Projects</span></h2>
+        <div class="projects-grid">
+            
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <!-- Add project image here -->
+                    <img src="https://via.placeholder.com/400x200" alt="Project 1">
+                </div>
+                <div class="project-info">
+                    <h3>Smart Home IoT Gateway</h3>
+                    <p>Designed a low-power gateway using ESP32 to bridge Zigbee sensors to a cloud dashboard.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">ESP32</span>
+                        <span class="tech-tag">MQTT</span>
+                    </div>
+                    <a href="#" class="project-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <!-- Add project image here -->
+                    <img src="https://via.placeholder.com/400x200" alt="Project 2">
+                </div>
+                <div class="project-info">
+                    <h3>RTOS Based Motor Control</h3>
+                    <p>Implemented a real-time PID controller on STM32 using FreeRTOS for precise drone stabilization.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">FreeRTOS</span>
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">PWM</span>
+                    </div>
+                    <a href="#" class="project-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <!-- Add project image here -->
+                    <img src="https://via.placeholder.com/400x200" alt="Project 3">
+                </div>
+                <div class="project-info">
+                    <h3>Automotive CAN Logger</h3>
+                    <p>Developed a device to capture and log CAN bus data for vehicle diagnostics and analysis.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">CAN Bus</span>
+                        <span class="tech-tag">SD Card</span>
+                    </div>
+                    <a href="#" class="project-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <p style="margin-bottom: 2rem; color: var(--text-gray);">
+                Currently open for new opportunities in Embedded Systems and Firmware Engineering. 
+                Feel free to reach out for collaborations or just to say hi!
+            </p>
+            <a href="mailto:your.email@example.com" class="btn btn-primary">Send Me an Email</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2023 Alex Engineer. Built with Code & Coffee.</p>
+    </footer>
+
+</body>
+</html>
